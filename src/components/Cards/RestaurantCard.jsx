@@ -7,6 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {MdStars} from 'react-icons/md'
+import { Link } from 'react-router-dom';
 
 const greenStar = {
     color:'green',
@@ -14,14 +15,15 @@ const greenStar = {
 }
 const RestaurantCard = (props) => {
     const {id,name,cloudinaryImageId,areaName,cuisines
-        ,avgRating} = props.data.info
+        ,avgRating} = props.data.info;
   return (
 
-
+<Link to={`restaurantDetailsPage/${id}`}>
     <Card sx={{ width: 280 , height:295 }} >
     <CardMedia
-      sx={{ height: 140 }}
-      image={IMG_URL+cloudinaryImageId}
+      className=''
+      sx={{ height: 160 }}
+      image= {IMG_URL+cloudinaryImageId}
       title="restaurants-img"
     />
     <CardContent>
@@ -39,6 +41,7 @@ const RestaurantCard = (props) => {
     </CardContent>
     
   </Card>
+</Link>
 
   )
 }
