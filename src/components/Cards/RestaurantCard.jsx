@@ -15,7 +15,7 @@ const greenStar = {
 }
 const RestaurantCard = (props) => {
     const {id,name,cloudinaryImageId,areaName,cuisines
-        ,avgRating} = props.data.info;
+        ,avgRating,costForTwo,sla} = props.data.info;
   return (
 
 <Link to={`restaurantDetailsPage/${id}`}>
@@ -27,16 +27,22 @@ const RestaurantCard = (props) => {
       title="restaurants-img"
     />
     <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-        {name}
-      </Typography>
-      <div className='flex gap-2 items-center '>
 
-       <MdStars  style={greenStar}/> {avgRating}
+      <div className='flex text-center items-center justify-between  '>
+       <div className='text-xl font-semibold'>{name}</div> 
+        <div className='flex gap-1 items-center '>
+       <MdStars className='' style={greenStar}/>
+        <div className=''>{avgRating}</div>
+        </div>
       </div>
       <Typography variant="body2" color="text.secondary">
       <h5>{cuisines.join(', ').substring(0,35)}</h5>
       <h5>{areaName}</h5>
+        
+      <div className='flex justify-between items-center'>
+      <h5 className='font-semibold '>{costForTwo}</h5>
+      <h5 className='text-xs	'>Delivery Timimg - {sla.deliveryTime} mins</h5>
+      </div>
       </Typography>
     </CardContent>
     

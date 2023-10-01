@@ -6,10 +6,10 @@
 
 .slick-prev{
     /* height: 1rem !important; */
-    left: 70rem !important;
+    left: 73rem !important;
     top: -30px !important;
 }
 .slick-next{
     top: -30px !important;
-    right: 5rem !important;
+    right: 2.5rem !important;
 }

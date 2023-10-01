@@ -33,27 +33,38 @@ async function  getRestaurant(){
  setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 }
 
-// console.log(filteredRestaurants)
-// Button 
+
+// Button filtered
 const filteredButton = (selectedButton) =>{
-  // if(selectedButton === 'lessThan300'){
-  //   let data  = filteredRestaurants.map((item)=> item.info.costForTwo)
-  //   let jatin=  data.filter((price)=> price)
-  //   console.log(jatin);
-  // }  
+  if(selectedButton==="All"){
+    setFilteredRestaurants(allrestaurants)
+  }
+  if(selectedButton === 'lessThan300'){
+   const data = allrestaurants.filter((res)=>res.info.costForTwo<'₹300 for two')
+  setFilteredRestaurants(data)
+  } 
+   if(selectedButton === '300To600'){
+    const data = allrestaurants.filter((res)=>res.info.costForTwo>'₹300 for two')
+    setFilteredRestaurants(data)
+  }
+  if(selectedButton==="fastDelivery"){
+    const data = allrestaurants.filter((res)=>res.info.sla.deliveryTime<=15)
+    setFilteredRestaurants(data)
+  }
 }
   
   return !filteredRestaurants? (<Shimmer/>) :
   (
     <>
-    <div className=' text-2xl w-10/12 pl-2 m-auto pt-4  '>Restaurants with online food delivery in Chandigarh</div>
+    <div className=' text-2xl w-10/12 pl-2 m-auto pt-4 font-bold'>Restaurants with online food delivery in Chandigarh</div>
     
     <div className='flex justify-around py-6 w-11/12  m-auto'>
-      <div className='flex gap-2 pr-10'>
-        <Button onClick={()=>{filteredButton('fast delivery')}} color='error' variant="outlined" size='small' >Fast Delivery</Button>
+      <div className='flex gap-2'>
+        <Button onClick={()=>{filteredButton('All')}} color='error' variant="outlined" size='small' >All</Button>
+        <Button onClick={()=>{filteredButton('fastDelivery')}} color='error' variant="outlined" size='small' >Fast Delivery</Button>
         <Button onClick={()=>{filteredButton()}} color='error' variant="outlined" size='small' >Pure Veg</Button>
         <Button onClick={()=>{filteredButton()}} color='error' variant="outlined" size='small' >Offers</Button>
-        <Button onClick={()=>{filteredButton()}} color='error' variant="outlined" size='small' >Rs.300-Rs.600</Button>
+        <Button onClick={()=>{filteredButton('300To600')}} color='error' variant="outlined" size='small' >Rs.300-Rs.600</Button>
         <Button onClick={()=>{filteredButton('lessThan300')}} color='error' variant="outlined" size='small' >Less than Rs.300</Button>
       </div>
 
