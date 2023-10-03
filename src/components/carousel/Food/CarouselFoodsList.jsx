@@ -2,19 +2,18 @@ import React, { useEffect, useState } from 'react'
 import CarouselFood from './CarouselFood'
 import Slider from 'react-slick';
 import './nav.css'
+import CarouselShimmer from '../../../Shimmer/CarouselShimmer';
 
 const settings = {
-    // dots: true,
-      infinite: true,
-      speed: 500,
+    infinite: false,
+    speed: 500,
       slidesToShow: 7,
       slidesToScroll: 1,
      
   };
 
-
 const CarouselFoodsList = () => {
-    const [food,setFood] = useState([])
+    const [food,setFood] = useState(null)
     
 
     useEffect(()=>{
@@ -27,11 +26,10 @@ const CarouselFoodsList = () => {
     setFood(json.data.cards[1].card.card.imageGridCards.info)
     }
 
-  return (
-
+  return !food ? (<CarouselShimmer/>) : (
     <>
-    <h1 className='w-10/12 m-auto text-2xl font-bold text-gray-800 mt-10 '>What's on your mind?</h1>
-        <Slider style={{mixBlendMode:'multiply'}} className='mb-6 h-44 pt-8  w-10/12 m-auto ' {...settings}>
+    <h1 className=' text-2xl font-bold text-gray-800 mt-10  '>What's on your mind?</h1>
+        <Slider style={{mixBlendMode:'multiply'}} className='mb-6 h-44 pt-8  ' {...settings}>
         {
             food.map((item)=>{
                 return (

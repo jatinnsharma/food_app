@@ -4,9 +4,7 @@ import { RES_CHAINS } from '../../../constant/constant';
 const CarouselRestaurant = (props) => {
   const {imageId} = props.data
   return (
-    <div className='m-3 mb-6'>
-      <img src={RES_CHAINS+imageId} alt="restaurantsChains-pic" />
-    </div>
+      <img  src={RES_CHAINS+imageId} alt="restaurantsChains-pic" />
   )
 }
 

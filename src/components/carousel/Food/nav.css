@@ -13,3 +13,10 @@
     top: -30px !important;
     right: 2.5rem !important;
 }
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+.slick-list {
+  margin: 0 -10px;
+}

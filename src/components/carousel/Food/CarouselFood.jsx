@@ -7,7 +7,7 @@ const CarouselFood = (props) => {
   const {imageId} = props.data
   return (
   <div className='flex justify-center items-center'>
-   <img className='h-32 ' src={BANNER_URL+imageId}  alt="banner_img" 
+   <img className='h-36 ' src={BANNER_URL+imageId}  alt="banner_img" 
    />
   </div>
   )

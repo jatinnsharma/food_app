@@ -3,11 +3,10 @@ import CarouselRestaurant from './CarouselRestaurant';
 import Slider from 'react-slick';
 
 const settings = {
-    infinite: true,
+  infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
-   
 };
 
 const CarouselRestaurantsList = () => {
@@ -22,14 +21,13 @@ const CarouselRestaurantsList = () => {
     const json = await data.json();
     setRestaurauntChains(json.data.cards[0].card.card.imageGridCards.info)
   }
-  return (
+  return (restaurantChains.length < 3 )? " " :  (
     <>
-    <div className='w-10/12 m-auto text-2xl font-bold text-gray-800 mt-10 mb-6'>Top restaurant chains in Chandigarh</div>
-      <Slider className='w-10/12 m-auto ' style={{mixBlendMode:'multiply'}} {...settings}>
-    {
+    <div className=' text-2xl font-bold text-gray-800 mt-10 mb-6'>Best offers for you</div>
+    <Slider className='mb-16' style={{mixBlendMode:'multiply'}}  {...settings}>    {
         restaurantChains.map((item)=>{
           return(
-            <CarouselRestaurant data={item} key={item.id}/>
+            <CarouselRestaurant data={item} />
           )
         })
       }

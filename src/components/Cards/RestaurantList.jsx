@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import RestaurantCard from './RestaurantCard';
 import Button from '@mui/material/Button';
-import Shimmer from '../../Shimmer/Shimmer';
+import RestaurantShimmer from '../../Shimmer/RestaurantShimmer';
 
 
 
@@ -29,10 +29,10 @@ useEffect(()=>{
 async function  getRestaurant(){
  const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING')
  const json = await data.json();
+ console.log(json.data.cards)
  setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
  setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 }
-
 
 // Button filtered
 const filteredButton = (selectedButton) =>{
@@ -40,30 +40,33 @@ const filteredButton = (selectedButton) =>{
     setFilteredRestaurants(allrestaurants)
   }
   if(selectedButton === 'lessThan300'){
-   const data = allrestaurants.filter((res)=>res.info.costForTwo<'₹300 for two')
+   const data = allrestaurants.filter((res)=>res.info.costForTwo < '₹300 for two')
   setFilteredRestaurants(data)
   } 
    if(selectedButton === '300To600'){
-    const data = allrestaurants.filter((res)=>res.info.costForTwo>'₹300 for two')
+    const data = allrestaurants.filter((res)=>(res.info.costForTwo > '₹300 for two' &&  res.info.costForTwo < '₹600 for two'))
     setFilteredRestaurants(data)
   }
   if(selectedButton==="fastDelivery"){
     const data = allrestaurants.filter((res)=>res.info.sla.deliveryTime<=15)
     setFilteredRestaurants(data)
   }
+  if(selectedButton==="pureVeg"){
+    const data = allrestaurants.filter((res)=>res.info.veg);
+    setFilteredRestaurants(data)
+  }
 }
   
-  return !filteredRestaurants? (<Shimmer/>) :
+  return !filteredRestaurants? (<RestaurantShimmer/>) :
   (
     <>
-    <div className=' text-2xl w-10/12 pl-2 m-auto pt-4 font-bold'>Restaurants with online food delivery in Chandigarh</div>
+    <div className=' text-2xl pt-4 font-bold'>Restaurants with online food delivery in Bangalore</div>
     
-    <div className='flex justify-around py-6 w-11/12  m-auto'>
-      <div className='flex gap-2'>
+    <div className='flex justify-around py-6 '>
+      <div className='flex gap-2 mr-32'>
         <Button onClick={()=>{filteredButton('All')}} color='error' variant="outlined" size='small' >All</Button>
         <Button onClick={()=>{filteredButton('fastDelivery')}} color='error' variant="outlined" size='small' >Fast Delivery</Button>
-        <Button onClick={()=>{filteredButton()}} color='error' variant="outlined" size='small' >Pure Veg</Button>
-        <Button onClick={()=>{filteredButton()}} color='error' variant="outlined" size='small' >Offers</Button>
+        <Button onClick={()=>{filteredButton("pureVeg")}} color='error' variant="outlined" size='small' >Pure Veg</Button>
         <Button onClick={()=>{filteredButton('300To600')}} color='error' variant="outlined" size='small' >Rs.300-Rs.600</Button>
         <Button onClick={()=>{filteredButton('lessThan300')}} color='error' variant="outlined" size='small' >Less than Rs.300</Button>
       </div>
@@ -78,7 +81,7 @@ const filteredButton = (selectedButton) =>{
     </div>
     </div>
 
-    <div className='grid grid-cols-4 place-items-center m-auto gap-5 w-10/12'>
+    <div className='grid grid-cols-4 place-items-center gap-5 '>
       {
         filteredRestaurants.map((items)=>{
           return (

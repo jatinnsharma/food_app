@@ -16,9 +16,10 @@ const greenStar = {
 const RestaurantCard = (props) => {
     const {id,name,cloudinaryImageId,areaName,cuisines
         ,avgRating,costForTwo,sla} = props.data.info;
+       
   return (
-
-<Link to={`restaurantDetailsPage/${id}`}>
+  
+<Link className=' transform transition duration-500 hover:scale-105 hover:drop-shadow-2xl' to={`restaurantDetailsPage/${id}`}>
     <Card sx={{ width: 280 , height:295 }} >
     <CardMedia
       className=''
@@ -29,7 +30,7 @@ const RestaurantCard = (props) => {
     <CardContent>
 
       <div className='flex text-center items-center justify-between  '>
-       <div className='text-xl font-semibold'>{name}</div> 
+       <div className='text-xl font-semibold'>{name.substring(0,20)}</div> 
         <div className='flex gap-1 items-center '>
        <MdStars className='' style={greenStar}/>
         <div className=''>{avgRating}</div>
