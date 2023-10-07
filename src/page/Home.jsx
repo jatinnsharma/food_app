@@ -8,13 +8,15 @@ import RestaurantList from "../components/Cards/RestaurantList";
 
 const Home = () => {
   return (
-    <div className="w-10/12 m-auto">
+    <>
       <CarouselRestaurantsList />
+    <div className="w-10/12 m-auto ">
         <Divider />
       <CarouselFoodsList />
         <Divider />
       <RestaurantList />
     </div>
+    </>
   );
 };
 

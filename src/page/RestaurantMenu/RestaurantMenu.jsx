@@ -7,7 +7,7 @@ const RestaurantMenu = (props) => {
     const {name,cuisines,areaName,avgRating,totalRatingsString,costForTwoMessage,city,feeDetails,cloudinaryImageId} = props.data
   return (
 
-    <></>
+    <h1>hello world</h1>
   )
 }
 

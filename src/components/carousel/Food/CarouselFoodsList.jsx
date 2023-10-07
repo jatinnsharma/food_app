@@ -8,7 +8,7 @@ const settings = {
     infinite: false,
     speed: 500,
       slidesToShow: 7,
-      slidesToScroll: 1,
+      slidesToScroll: 3,
      
   };
 
@@ -26,7 +26,7 @@ const CarouselFoodsList = () => {
     setFood(json.data.cards[1].card.card.imageGridCards.info)
     }
 
-  return !food ? (<CarouselShimmer/>) : (
+  return !food ? " " :(
     <>
     <h1 className=' text-2xl font-bold text-gray-800 mt-10  '>What's on your mind?</h1>
         <Slider style={{mixBlendMode:'multiply'}} className='mb-6 h-44 pt-8  ' {...settings}>

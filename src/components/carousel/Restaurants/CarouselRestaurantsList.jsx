@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CarouselRestaurant from './CarouselRestaurant';
 import Slider from 'react-slick';
+import CarouselShimmer from '../../../Shimmer/CarouselShimmer';
 
 const settings = {
   infinite: false,
@@ -10,7 +11,7 @@ const settings = {
 };
 
 const CarouselRestaurantsList = () => {
-  const [restaurantChains,setRestaurauntChains] = useState([])
+  const [restaurantChains,setRestaurauntChains] = useState(null)
 
   useEffect(()=>{
     getData();
@@ -21,8 +22,9 @@ const CarouselRestaurantsList = () => {
     const json = await data.json();
     setRestaurauntChains(json.data.cards[0].card.card.imageGridCards.info)
   }
-  return (restaurantChains.length < 3 )? " " :  (
-    <>
+
+  return !restaurantChains ? (<CarouselShimmer/>): (
+    <div className='w-10/12 m-auto'>
     <div className=' text-2xl font-bold text-gray-800 mt-10 mb-6'>Best offers for you</div>
     <Slider className='mb-16' style={{mixBlendMode:'multiply'}}  {...settings}>    {
         restaurantChains.map((item)=>{
@@ -32,7 +34,7 @@ const CarouselRestaurantsList = () => {
         })
       }
       </Slider>
-    </>
+    </div>
   )
 }
 

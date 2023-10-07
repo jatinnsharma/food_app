@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { IMG_URL } from "../../constant/constant";
 import RestaurantMenu from "./RestaurantMenu";
@@ -94,9 +94,12 @@ const {lastMileTravelString} = restaurant?.info.sla;
                 </div>
               </div>
              
+              
       {Object.values(restaurant).map((items, index) => {
-        return <RestaurantMenu data={items} key={index} />;
-      })}
+        return (
+            <RestaurantMenu data={items} key={index} />
+            )
+          })}
     </div>
   );
 };
