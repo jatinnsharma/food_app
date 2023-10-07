@@ -27,7 +27,7 @@ const CarouselRestaurantsList = () => {
     <Slider className='mb-16' style={{mixBlendMode:'multiply'}}  {...settings}>    {
         restaurantChains.map((item)=>{
           return(
-            <CarouselRestaurant data={item} />
+            <CarouselRestaurant data={item} key={item.id} />
           )
         })
       }

@@ -29,7 +29,6 @@ useEffect(()=>{
 async function  getRestaurant(){
  const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING')
  const json = await data.json();
- console.log(json.data.cards)
  setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
  setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 }
@@ -73,7 +72,7 @@ const filteredButton = (selectedButton) =>{
 
     <div className='flex gap-2'>
     {/* search functionality */}
-    <input style={{height:'2.2rem',width:'25rem'}} className='pl-3' type="text" placeholder='Search for restaurants and food...' value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}} />
+    <input style={{height:'2.2rem',width:'25rem'}} className='pl-3 drop-shadow-md focus-visible:outline-none' type="text" placeholder='Search for restaurants and food...' value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}} />
     <Button style={{height:'2.1rem'}} color='error' variant="outlined" size='small' onClick={()=>{
       const data = filterData(searchTerm,allrestaurants)
       setFilteredRestaurants(data)
@@ -85,7 +84,7 @@ const filteredButton = (selectedButton) =>{
       {
         filteredRestaurants.map((items)=>{
           return (
-            <RestaurantCard data={items} key={items.id}/>
+            <RestaurantCard data={items} key={items.info.id}/>
           )
         })
       }

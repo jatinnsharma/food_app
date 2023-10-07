@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
+  const [isLoggedIn , setIsLoggedIn] = useState(false)
   return (
     <div className='h-16 bg-white flex items-center  justify-around '>
         <div className='flex gap-6'>
@@ -13,10 +14,13 @@ const Header = () => {
         </div>
             </div>
         <div className='flex gap-12 font-semibold '>
-            <a href="#">Search</a>
+            <Link to={'/search-page'} className='cursor-pointer'>Search</Link>
             <a href="#">Offers</a>
             <a href="#">Help</a>
-            <a href="#">Sign</a>
+            {isLoggedIn ? (<button onClick={()=>setIsLoggedIn(false)}>Logout</button>) : (
+              <button onClick={()=>setIsLoggedIn(true)}>Login</button>
+            )
+            }
             <a href="#">Cart</a>
         </div>
     </div>

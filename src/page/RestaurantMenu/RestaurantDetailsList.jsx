@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { IMG_URL } from "../../constant/constant";
 import RestaurantMenu from "./RestaurantMenu";
 import RestaurantMenuShimmmer from "../../Shimmer/RestaurantMenuShimmer";
@@ -24,10 +24,10 @@ const RestaurantDetailsList = () => {
       `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.5940499&lng=85.1376051&restaurantId=${id}`
     );
     const json = await data.json();
-    console.log(json?.data?.cards[0].card?.card);
+    // console.log(json?.data);
     setRestauraunt(json?.data?.cards[0].card?.card);
   }
-  if (restaurant === null) {
+  if (restaurant === null) { 
     return <RestaurantMenuShimmmer />;
   }
   const { name, city, areaName, cuisines, avgRating, totalRatingsString,costForTwoMessage } =
@@ -45,7 +45,7 @@ const {lastMileTravelString} = restaurant?.info.sla;
         </div>
         <div>
 
-        <button>Search bar</button>
+        <Link to={'/search-page'}>Search bar</Link>
         </div>
       </div>
       <div className="flex justify-between mt-4 ">
