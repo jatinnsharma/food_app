@@ -6,6 +6,9 @@ import RestaurantDetailsList from './page/RestaurantMenu/RestaurantDetailsList';
 import Footer from './components/Footer/Footer';
 import ErrorPage from './page/ErrorPage';
 import RestaurantMenuShimmmer from './Shimmer/RestaurantMenuShimmer';
+import OfflinePage from './page/offlinePage/OfflinePage';
+import useIsOnline from './utils/useIsOnline';
+import AboutPage from './page/AboutPage/AboutPage';
 
 
 const Search = lazy(()=>import('./page/SearchPage/SearchPage'))
@@ -17,8 +20,10 @@ const Search = lazy(()=>import('./page/SearchPage/SearchPage'))
 // On Demand Loading
 // Dynamic Import
 
+
 function App() {
-  return (
+  const isOnline = useIsOnline()
+  return !isOnline ? (<OfflinePage/>) :(
     <>
     <Header/>
     <Routes>
@@ -29,11 +34,11 @@ function App() {
       </Suspense>
     }/>
     <Route path='restaurantDetailsPage/:id' element={<RestaurantDetailsList/>}/>
+    <Route path="/about-page" element={<AboutPage />} />
     <Route path="/error" element={<ErrorPage />} />
     <Route path='*' element={<ErrorPage/>}/>
     </Routes>
     <Footer/>
-
     </>
   );
 }

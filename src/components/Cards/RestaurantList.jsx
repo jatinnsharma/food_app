@@ -2,17 +2,7 @@ import React, { useEffect, useState } from 'react'
 import RestaurantCard from './RestaurantCard';
 import Button from '@mui/material/Button';
 import RestaurantShimmer from '../../Shimmer/RestaurantShimmer';
-
-
-
-
-function filterData(searchText, allrestaurants) {
-  const filterData = allrestaurants.filter((restaurant) =>
-    restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
-  );
-  return filterData;
-}
-
+import { filterData } from '../../utils/helper';
 
 
 const RestaurantList = () => {

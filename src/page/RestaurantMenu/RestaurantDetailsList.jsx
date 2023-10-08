@@ -9,24 +9,17 @@ import { Divider } from "@mui/material";
 import {BiSolidTimeFive} from 'react-icons/bi'
 import {HiMiniCurrencyRupee} from 'react-icons/hi2'
 import {CiPercent} from 'react-icons/ci'
+import useGetRestaurantsDetails from "../../utils/useGetRestaurantsDetails";
+
 
 const RestaurantDetailsList = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [restaurant, setRestauraunt] = useState(null);
 
-  useEffect(() => {
-    getRestaurantInfo();
-  }, []);
+  const restaurant = useGetRestaurantsDetails(id)
 
-  async function getRestaurantInfo() {
-    const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.5940499&lng=85.1376051&restaurantId=${id}`
-    );
-    const json = await data.json();
-    // console.log(json?.data);
-    setRestauraunt(json?.data?.cards[0].card?.card);
-  }
+
+
   if (restaurant === null) { 
     return <RestaurantMenuShimmmer />;
   }

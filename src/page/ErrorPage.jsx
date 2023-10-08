@@ -1,6 +1,7 @@
 import React from 'react'
-import { useRouteError } from 'react-router-dom'
+// import { useRouteError } from 'react-router-dom'
 import { Link } from "react-router-dom";
+import { ERROR_IMG } from '../constant/constant';
 
 const ErrorPage = () => {
     // const err = useRouteError()
@@ -12,7 +13,7 @@ const ErrorPage = () => {
       <img
         height="450"
         width="500"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/empty_404_3x_rgdw87"
+        src={ERROR_IMG}
         alt="cartimg"
       />
       <h4 className="text-2xl font-semibold text-gray-700">

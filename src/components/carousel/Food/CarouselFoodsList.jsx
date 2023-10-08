@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import CarouselFood from './CarouselFood'
 import Slider from 'react-slick';
 import './nav.css'
-import CarouselShimmer from '../../../Shimmer/CarouselShimmer';
 
 const settings = {
     infinite: false,

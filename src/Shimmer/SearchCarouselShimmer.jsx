@@ -14,15 +14,23 @@ const SearchCarouselShimmmer = () => {
           ))}
       </div>
 
-      {Array(10)
+      {Array(3)
         .fill("")
         .map(() => (
+          <>
           <Skeleton
             variant="rectangular"
             width="80%"
             height={130}
             style={{ marginBottom: "20px" }}
           />
+          <Skeleton
+            variant="rectangular"
+            width="50%"
+            height={10}
+            style={{ marginBottom: "20px" }}
+          />
+          </>
         ))}
     </div>
   );
