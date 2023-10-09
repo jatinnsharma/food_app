@@ -21,8 +21,8 @@ const Header = () => {
             <Link to={'/search-page'} className='cursor-pointer flex items-center gap-1 hover:text-gray-600'>
             <FiSearch className='text-red-700 hover:scale-110'/>
               Search</Link>
+            <Link className='hover:text-gray-500' to={'./available-offers'}>Offers</Link>
             <Link className='hover:text-gray-500' to={'./about-page'}>About</Link>
-            <Link className='hover:text-gray-500' href="#">Help</Link>
             {isLoggedIn ? (<button onClick={()=>setIsLoggedIn(false)}>Logout</button>) : (
               <button className='hover:text-gray-500' onClick={()=>setIsLoggedIn(true)}>Login</button>
             )

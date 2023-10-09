@@ -4,11 +4,10 @@ import Slider from 'react-slick';
 import './nav.css'
 
 const settings = {
-    infinite: false,
-    speed: 500,
-      slidesToShow: 7,
-      slidesToScroll: 3,
-     
+        infinite: false,
+        speed: 500,
+        slidesToShow: 7,
+        slidesToScroll: 3,
   };
 
 const CarouselFoodsList = () => {

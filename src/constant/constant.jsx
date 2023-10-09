@@ -6,6 +6,8 @@ export const LOGO_URL ='https://cdni.iconscout.com/illustration/premium/thumb/gr
 
 export const SEARCH_CAROUSEL='https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_500,h_720,c_fill/'
 
-export const RESTAURANT_ID_DETAILS="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.5940499&lng=85.1376051&restaurantId="
+export const RESTAURANT_ID_DETAILS="https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.4822335&lng=73.9470036&restaurantId="
 
 export const ERROR_IMG='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/empty_404_3x_rgdw87'
+
+export const MENU_ITEM_IMG='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit//'

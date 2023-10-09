@@ -1,13 +1,34 @@
-import { Divider } from '@mui/material'
 import React from 'react'
-import { IMG_URL } from '../../constant/constant'
+import CategoryList from './CategoryList'
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
 
-const RestaurantMenu = (props) => {
-    // console.log(props)
-    const {name,cuisines,areaName,avgRating,totalRatingsString,costForTwoMessage,city,feeDetails,cloudinaryImageId} = props.data
+
+const RestaurantMenu = (items) => {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+  const { itemCards, title } = items?.card?.card;  
   return (
-
-    <h1>hello world</h1>
+    <Accordion className='mt-1' expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+    <AccordionSummary
+      expandIcon={'+'}
+      aria-controls="panel1bh-content"
+      id="panel1bh-header"
+    >
+      <Typography  sx={{ width: '33%', flexShrink: 0 }}>
+        <div className=''>{title} ({itemCards.length})</div>
+      
+      </Typography>
+    </AccordionSummary>
+    
+      {
+        <CategoryList itemCards={itemCards} />
+      }
+    
+  </Accordion>
   )
 }
 

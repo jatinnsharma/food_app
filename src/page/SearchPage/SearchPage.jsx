@@ -10,8 +10,6 @@ const settings = {
     arrows: false,
     swipeToSlide: true,
     infinite: false,
-
-
 };
 const SearchPage = () => {
   const [carouselData, setCarouselData] = useState(null)

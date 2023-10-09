@@ -9,6 +9,7 @@ import RestaurantMenuShimmmer from './Shimmer/RestaurantMenuShimmer';
 import OfflinePage from './page/offlinePage/OfflinePage';
 import useIsOnline from './utils/useIsOnline';
 import AboutPage from './page/AboutPage/AboutPage';
+import OffersPage from './page/OffersPage/OffersPage';
 
 
 const Search = lazy(()=>import('./page/SearchPage/SearchPage'))
@@ -35,6 +36,7 @@ function App() {
     }/>
     <Route path='restaurantDetailsPage/:id' element={<RestaurantDetailsList/>}/>
     <Route path="/about-page" element={<AboutPage />} />
+    <Route path="/available-offers" element={<OffersPage />} />
     <Route path="/error" element={<ErrorPage />} />
     <Route path='*' element={<ErrorPage/>}/>
     </Routes>

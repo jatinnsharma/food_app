@@ -18,14 +18,28 @@ const RestaurantDetailsList = () => {
 
   const restaurant = useGetRestaurantsDetails(id)
 
-
-
+  const [showIndex, setShowIndex] = useState(0);  
+  
   if (restaurant === null) { 
     return <RestaurantMenuShimmmer />;
   }
+
+  const categories =
+  restaurant?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    (category) =>
+      category.card?.["card"]?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+  
+    // const categories = restaurant?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards
+
+  // get data from api 
   const { name, city, areaName, cuisines, avgRating, totalRatingsString,costForTwoMessage } =
-    restaurant?.info;
-const {lastMileTravelString} = restaurant?.info.sla;
+    restaurant?.cards[0]?.card?.card?.info;
+
+const {lastMileTravelString} = restaurant?.cards[0]?.card?.card?.info?.sla;
+
+
   return (
     <div className="w-8/12 m-auto mt-5">
       <div className="flex items-center justify-between">
@@ -65,7 +79,7 @@ const {lastMileTravelString} = restaurant?.info.sla;
          <BiSolidTimeFive style={{ fontSize: "20px" }} /> {lastMileTravelString}  |  <HiMiniCurrencyRupee style={{ fontSize: "20px" }} /> {costForTwoMessage}
       </div>
 
-      <div className="grid grid-cols-4 text-gray-500 bg-white rounded-lg mt-8 drop-shadow-xl		border justify-center items-center text-center">
+      <div className="grid grid-cols-4 text-gray-500 bg-white rounded-lg my-8 drop-shadow-xl		border justify-center items-center text-center">
                 <div className="">
                   <h6 className="flex items-center justify-center gap-1 ">
                     <CiPercent /> 
@@ -87,12 +101,13 @@ const {lastMileTravelString} = restaurant?.info.sla;
                 </div>
               </div>
              
-              
-      {Object.values(restaurant).map((items, index) => {
-        return (
-            <RestaurantMenu data={items} key={index} />
-            )
-          })}
+      {
+        categories.map((items)=>{
+         return (
+          <RestaurantMenu {...items} key={items?.card?.card.title}/>
+         ) 
+        })
+      }
     </div>
   );
 };
