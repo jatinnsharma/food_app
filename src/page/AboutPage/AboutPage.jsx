@@ -21,7 +21,7 @@ const AboutPage = () => {
     <div style={{height:'77vh',width:'100vw'}} className='overflow-x-hidden' >
         <div className=' flex justify-center items-center mt-12'>
        <div className='w-2/6 flex items-center justify-center'>
-        <img className='h-56 rounded-full' src={avatar_url} alt="avatar" />
+        <img className='h-72 rounded-full' src={avatar_url} alt="avatar" />
        </div>
        <div className='w-3/6'>
         <div className='text-3xl text-gray-800 font-semibold mb-6'>ABOUT ME</div>
@@ -29,12 +29,31 @@ const AboutPage = () => {
        </div>
         </div>
 
-        <div className='bg-white h-16 w-4/6 m-auto rounded-xl shadow-lg mt-48 flex justify-center items-center gap-8 text-3xl cursor-pointer '>
-            <div className='text-gray-600 font-semibold text-2xl'>Contact :</div>
-            <Link to='https://github.com/jatinnsharma' target="_blank" className='hover:text-gray-600 hover:scale-105'><BsGithub/> </Link>
-            <div className='text-blue-700 hover:text-blue-600 hover:scale-105'><BsLinkedin/></div>
-            <div className='text-red-600 text-4xl hover:text-red-700 hover:scale-105'><CgMail/></div>
-            <div className='text-green-600 flex items-center gap-2 hover:scale-105'><BsWhatsapp/> <span className='text-gray-700 text-sm'> 9050603853</span> </div>
+        <div className=' h-16 w-4/6 m-auto rounded-xl shadow-md mt-24 flex justify-center items-center gap-8 text-3xl cursor-pointer '>
+            <div className='text-gray-600 font-semibold text-xl'>Contact :</div>
+            <div className='flex hover:text-gray-600 hover:scale-105'>
+            <Link to='https://github.com/jatinnsharma' target="_blank" ><BsGithub/> 
+            </Link>
+            <span className=' text-xs relative bottom-4 right-1'>Github</span>
+            </div>
+
+            <div className=' flex text-blue-700 hover:text-blue-600 hover:scale-105'>
+                <Link to={'https://www.linkedin.com/in/jatin-sharma-606546267/'} target='_blank'>
+                <BsLinkedin/>
+                </Link>
+                <span className=' text-xs relative bottom-4 right-1'>Connect</span>
+                </div>
+            <div className='text-red-600 text-4xl hover:text-red-700 hover:scale-105 flex '>
+             <Link  to={'mailto:jatinsharma2231@gmail.com'}>
+                <CgMail/>
+                </Link>  
+                <span className=' text-xs relative bottom-4 right-2'>Send Mail</span>
+            </div>
+            <div className='text-green-600 flex items-center gap-2 hover:scale-105'>
+                <Link to={'https://wa.me/9050603853'} target='_blank'>
+                <BsWhatsapp/>
+                </Link>
+            <span className=' text-xs relative bottom-4 right-2'> WhatApp</span> </div>
         </div>
     </div>
   )

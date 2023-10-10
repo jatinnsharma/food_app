@@ -1,5 +1,5 @@
-import React , {lazy,Suspense} from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './page/Home';
 import RestaurantDetailsList from './page/RestaurantMenu/RestaurantDetailsList';
@@ -10,9 +10,10 @@ import OfflinePage from './page/offlinePage/OfflinePage';
 import useIsOnline from './utils/useIsOnline';
 import AboutPage from './page/AboutPage/AboutPage';
 import OffersPage from './page/OffersPage/OffersPage';
+import Cart from './page/cart/Cart';
 
 
-const Search = lazy(()=>import('./page/SearchPage/SearchPage'))
+const Search = lazy(() => import('./page/SearchPage/SearchPage'))
 // this is also known as the following name
 // Chunking
 // Code Splitting
@@ -21,26 +22,35 @@ const Search = lazy(()=>import('./page/SearchPage/SearchPage'))
 // On Demand Loading
 // Dynamic Import
 
+const PageLayout = () => (
+  <>
+    <Header />
+    <Outlet />
+    <Footer />
+  </>
+)
 
 function App() {
   const isOnline = useIsOnline()
-  return !isOnline ? (<OfflinePage/>) :(
+  return !isOnline ? (<OfflinePage />) : (
     <>
-    <Header/>
-    <Routes>
-    <Route path='/' element={<Home/>}/>
-    <Route path='/search-page' element={
-      <Suspense fallback={<RestaurantMenuShimmmer/>}>
-        <Search/>
-      </Suspense>
-    }/>
-    <Route path='restaurantDetailsPage/:id' element={<RestaurantDetailsList/>}/>
-    <Route path="/about-page" element={<AboutPage />} />
-    <Route path="/available-offers" element={<OffersPage />} />
-    <Route path="/error" element={<ErrorPage />} />
-    <Route path='*' element={<ErrorPage/>}/>
-    </Routes>
-    <Footer/>
+      <Routes>
+        <Route element={<PageLayout />}>
+          <Route path='/' element={<Home />} />
+          <Route path='/search-page' element={
+            <Suspense fallback={<RestaurantMenuShimmmer />}>
+              <Search />
+            </Suspense>
+          } />
+          <Route path='restaurantDetailsPage/:id' element={<RestaurantDetailsList />} />
+          <Route path="/about-page" element={<AboutPage />} />
+          <Route path="/available-offers" element={<OffersPage />} />
+          <Route path="/available-offers/restaurantDetailsPage/:id" element={<RestaurantDetailsList />} />
+          <Route path="/cart" element={<Cart />} />
+        </Route>
+        <Route path="/error" element={<ErrorPage />} />
+        <Route path='*' element={<ErrorPage />} />
+      </Routes>
     </>
   );
 }

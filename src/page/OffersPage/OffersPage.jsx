@@ -3,7 +3,10 @@ import RestaurantList from '../../components/Cards/RestaurantList'
 
 const OffersPage = () => {
   return (
-    <RestaurantList/>
+    <div className='w-10/12 m-auto'>
+        <RestaurantList/>
+    </div>
+    
   )
 }
 

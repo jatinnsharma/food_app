@@ -21,7 +21,7 @@ const CarouselFoodsList = () => {
    async function getFoodData(){
     const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING')
     const json = await data.json()
-    setFood(json.data.cards[1].card.card.imageGridCards.info)
+    setFood(json?.data?.cards[1]?.card?.card?.imageGridCards?.info)
     }
 
   return !food ? " " :(

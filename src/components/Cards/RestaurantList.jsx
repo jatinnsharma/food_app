@@ -37,7 +37,7 @@ const filteredButton = (selectedButton) =>{
     setFilteredRestaurants(data)
   }
   if(selectedButton==="fastDelivery"){
-    const data = allrestaurants.filter((res)=>res.info.sla.deliveryTime<=15)
+    const data = allrestaurants.filter((res)=>res?.info?.sla?.deliveryTime<=15)
     setFilteredRestaurants(data)
   }
   if(selectedButton==="pureVeg"){
@@ -53,17 +53,17 @@ const filteredButton = (selectedButton) =>{
     
     <div className='flex justify-around py-6 '>
       <div className='flex gap-2 mr-32'>
-        <Button onClick={()=>{filteredButton('All')}} color='error' variant="outlined" size='small' >All</Button>
-        <Button onClick={()=>{filteredButton('fastDelivery')}} color='error' variant="outlined" size='small' >Fast Delivery</Button>
-        <Button onClick={()=>{filteredButton("pureVeg")}} color='error' variant="outlined" size='small' >Pure Veg</Button>
-        <Button onClick={()=>{filteredButton('300To600')}} color='error' variant="outlined" size='small' >Rs.300-Rs.600</Button>
-        <Button onClick={()=>{filteredButton('lessThan300')}} color='error' variant="outlined" size='small' >Less than Rs.300</Button>
+        <Button onClick={()=>{filteredButton('All')}}  style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >All</Button>
+        <Button onClick={()=>{filteredButton('fastDelivery')}}  style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >Fast Delivery</Button>
+        <Button onClick={()=>{filteredButton("pureVeg ")}} style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >Pure Veg</Button>
+        <Button onClick={()=>{filteredButton('300To600')}}  style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >Rs.300-Rs.600</Button>
+        <Button onClick={()=>{filteredButton('lessThan300')}}  style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >Less than Rs.300</Button>
       </div>
 
     <div className='flex gap-2'>
     {/* search functionality */}
     <input style={{height:'2.2rem',width:'25rem'}} className='pl-3 drop-shadow-md focus-visible:outline-none' type="text" placeholder='Search for restaurants and food...' value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}} />
-    <Button style={{height:'2.1rem'}} color='error' variant="outlined" size='small' onClick={()=>{
+    <Button  style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' onClick={()=>{
       const data = filterData(searchTerm,allrestaurants)
       setFilteredRestaurants(data)
     }}>Search</Button>
@@ -74,7 +74,7 @@ const filteredButton = (selectedButton) =>{
       {
         filteredRestaurants.map((items)=>{
           return (
-            <RestaurantCard data={items} key={items.info.id}/>
+            <RestaurantCard data={items} key={items?.info?.id}/>
           )
         })
       }

@@ -8,8 +8,8 @@ const ErrorPage = () => {
     // console.log(err) 
     // This feature only works if using a data router
   return (
-    <div style={{height:'79.5vh',width:'100vw'}} className="">
-    <div className='flex flex-col items-center justify-center'>
+
+    <div style={{height:'100vh',width:'100vw'}} className='flex flex-col items-center justify-center'>
       <img
         height="450"
         width="500"
@@ -33,7 +33,7 @@ const ErrorPage = () => {
         </button>
       </Link>
     </div>
-  </div>
+
   )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import CategoryList from './CategoryList'
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
-
+import {MdKeyboardArrowDown} from 'react-icons/md'
 
 const RestaurantMenu = (items) => {
   const [expanded, setExpanded] = React.useState(false);
@@ -12,14 +12,14 @@ const RestaurantMenu = (items) => {
 
   const { itemCards, title } = items?.card?.card;  
   return (
-    <Accordion className='mt-1' expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+    <Accordion  expanded={expanded === 'panel'} onChange={handleChange('panel')}>
     <AccordionSummary
-      expandIcon={'+'}
+      expandIcon={<MdKeyboardArrowDown/>}
       aria-controls="panel1bh-content"
       id="panel1bh-header"
     >
       <Typography  sx={{ width: '33%', flexShrink: 0 }}>
-        <div className=''>{title} ({itemCards.length})</div>
+        <div className='font-semibold text-gray-600 '>{title} ({itemCards.length})</div>
       
       </Typography>
     </AccordionSummary>
