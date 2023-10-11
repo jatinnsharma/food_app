@@ -1,9 +1,19 @@
 import { AccordionDetails, Alert, Button, Snackbar } from "@mui/material";
 import React from "react";
 import { MENU_ITEM_IMG } from "../../constant/constant";
-import { FaDotCircle } from "react-icons/fa";
 import { AiFillStar } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/features/cartSlice";
+
+
+
 const CategoryList = (itemCards) => {
+  const dispatch = useDispatch()
+  
+  const addItems = (items) =>{
+    dispatch(addItem(items))
+    handleClick()
+  }
   const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
@@ -17,6 +27,7 @@ const CategoryList = (itemCards) => {
 
     setOpen(false);
   };
+
   return (
     <AccordionDetails>
       {itemCards?.itemCards?.map((items) => {
@@ -25,7 +36,7 @@ const CategoryList = (itemCards) => {
         const { text } = items?.card?.info?.ribbon;
 
         return (
-          <div className="flex justify-between ">
+          <div className="flex justify-between " key={items?.card?.info?.id}>
             <div>
               <div className="flex gap-2">
                 {vegClassifier === "VEG" ? 
@@ -55,13 +66,14 @@ const CategoryList = (itemCards) => {
               />
               <Button
                 variant="outlined"
-                onClick={handleClick}
+                onClick={()=>addItems(items)}
                 style={{
                   backgroundColor: "white",
                   color: "green",
                   border: "green",
                 }}
                 className="relative bottom-6"
+                
               >
                 ADD
               </Button>

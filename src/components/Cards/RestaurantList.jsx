@@ -49,10 +49,10 @@ const filteredButton = (selectedButton) =>{
   return !filteredRestaurants? (<RestaurantShimmer/>) :
   (
     <>
-    <div className=' text-2xl pt-4 font-bold'>Restaurants with online food delivery in Bangalore</div>
+    <div className='text-sm md:text-2xl pt-4 font-bold text-gray-700'>Restaurants with online food delivery in Bangalore</div>
     
-    <div className='flex justify-around py-6 '>
-      <div className='flex gap-2 mr-32'>
+    <div className='flex flex-col items-center mx-auto  md:flex md:flex-row md:items-center justify-around py-6 '>
+      <div className='flex flex-wrap justify-center items-center mx-auto w-full mb-5  md:flex gap-2 mr-32'>
         <Button onClick={()=>{filteredButton('All')}}  style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >All</Button>
         <Button onClick={()=>{filteredButton('fastDelivery')}}  style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >Fast Delivery</Button>
         <Button onClick={()=>{filteredButton("pureVeg ")}} style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >Pure Veg</Button>
@@ -62,7 +62,7 @@ const filteredButton = (selectedButton) =>{
 
     <div className='flex gap-2'>
     {/* search functionality */}
-    <input style={{height:'2.2rem',width:'25rem'}} className='pl-3 drop-shadow-md focus-visible:outline-none' type="text" placeholder='Search for restaurants and food...' value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}} />
+    <input  className='h-9 w-64 pl-3 md:h-9 md:w-96 drop-shadow-md focus-visible:outline-none' type="text" placeholder='Search for restaurants and food...' value={searchTerm} onChange={(e)=>{setSearchTerm(e.target.value)}} />
     <Button  style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' onClick={()=>{
       const data = filterData(searchTerm,allrestaurants)
       setFilteredRestaurants(data)
@@ -70,7 +70,7 @@ const filteredButton = (selectedButton) =>{
     </div>
     </div>
 
-    <div className='grid grid-cols-4 place-items-center gap-5 '>
+    <div className='grid grid-cols-2 md:grid md:grid-cols-4 place-items-center gap-5 '>
       {
         filteredRestaurants.map((items)=>{
           return (

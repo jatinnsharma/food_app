@@ -51,6 +51,7 @@ function App() {
         <Route path="/error" element={<ErrorPage />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
+      
     </>
   );
 }

@@ -10,9 +10,13 @@ import {BiSolidTimeFive} from 'react-icons/bi'
 import {HiMiniCurrencyRupee} from 'react-icons/hi2'
 import {CiPercent} from 'react-icons/ci'
 import useGetRestaurantsDetails from "../../utils/useGetRestaurantsDetails";
+import { BsFillCartFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 
 const RestaurantDetailsList = () => {
+  const cartItems = useSelector((store) => store.cart.items);
+
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -23,6 +27,8 @@ const RestaurantDetailsList = () => {
   if (restaurant === null) { 
     return <RestaurantMenuShimmmer />;
   }
+
+
 
   const categories =
   restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -108,6 +114,18 @@ const {lastMileTravelString} = restaurant?.cards[0]?.card?.card?.info?.sla;
          ) 
         })
       }
+      {cartItems?.length > 0 && (
+            <div className="flex justify-between fixed bottom-9 right-3 mb-12 mr-10">
+              <span className="px-5 py-2 text-sm font-bold tracking-wide text-white rounded-full focus:outline-none"></span>
+              <Link to="/cart">
+                 
+                <button className="flex items-center px-4 py-2 text-sm font-bold tracking-wide text-white bg-orange-500 rounded-full">
+                  <BsFillCartFill style={{fontSize:"1.2rem",paddingRight:"5px"}}/> Cart - {''}
+                  {cartItems.length}
+                </button> 
+              </Link>
+            </div>
+          )}
     </div>
   );
 };
