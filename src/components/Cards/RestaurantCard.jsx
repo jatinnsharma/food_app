@@ -15,15 +15,14 @@ const greenStar = {
 }
 const RestaurantCard = (props) => {
     const {id,name,cloudinaryImageId,areaName,cuisines
-        ,avgRating,costForTwo,sla} = props.data.info;
+        ,avgRating,costForTwo,sla} = props?.data?.info;
        
   return (
   
 <Link className=' transform transition duration-500 hover:scale-105 hover:drop-shadow-2xl' to={`restaurantDetailsPage/${id}`}>
-    <Card className='' >
-    <CardMedia
+    <Card className='h-[20rem] md:h-[19rem]' >
+    <CardMedia 
       className='h-[10rem]'
-      
       image= {IMG_URL+cloudinaryImageId}
       title="restaurants-img"
     />
@@ -41,7 +40,7 @@ const RestaurantCard = (props) => {
         
       <Typography component={'div'} className='flex justify-between items-center'>
       <div className='font-semibold '>{costForTwo}</div>
-      <div  className='text-xs	'>Delivery Timimg - {sla.deliveryTime} mins</div>
+      <div  className='text-xs	'>Delivery Timimg - {sla?.deliveryTime} mins</div>
       </Typography>
       </Typography>
     </CardContent>

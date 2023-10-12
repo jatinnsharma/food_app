@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoryList from './CategoryList'
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
+import { Accordion, AccordionSummary, Typography } from '@mui/material';
 import {MdKeyboardArrowDown} from 'react-icons/md'
 
 const RestaurantMenu = (items) => {

@@ -12,10 +12,7 @@ const Home = () => {
       <CarouselRestaurantsList />
     <div className="w-10/12 m-auto ">
         <Divider />
-        <div className="hidden md:block"> 
-
       <CarouselFoodsList />
-        </div>
         <Divider />
       <RestaurantList />
     </div>

@@ -8,6 +8,37 @@ const settings = {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+          arrows: false,
+
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          arrows: false,
+
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          arrows: false,
+        }
+      }
+    ]
 };
 
 const CarouselRestaurantsList = () => {
@@ -25,11 +56,11 @@ const CarouselRestaurantsList = () => {
 
   return !restaurantChains ? (<CarouselShimmer/>): (
     <div className='w-10/12 m-auto'>
-    <div className=' text-2xl font-bold text-gray-800 mt-10 mb-6'>Best offers for you</div>
+    <div className='text-lg md:text-2xl font-bold text-gray-800 mt-10 mb-6'>Best offers for you</div>
     <Slider className='mb-16' style={{mixBlendMode:'multiply'}}  {...settings}>    {
         restaurantChains.map((item)=>{
           return(
-            <CarouselRestaurant data={item} key={item.id} />
+            <CarouselRestaurant data={item} key={item?.id} />
           )
         })
       }

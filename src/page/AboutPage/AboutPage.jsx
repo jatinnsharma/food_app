@@ -20,7 +20,7 @@ const AboutPage = () => {
 
   if(!userData){return <AboutPageShimmer/>}
 
-  const { login, avatar_url, html_url,  location, name } =
+  const { avatar_url, name } =
     userData;
   return (
     <div
@@ -36,7 +36,7 @@ const AboutPage = () => {
             ABOUT ME
           </div>
           <div className=" md:w-5/6 text-gray-500">
-            Hello, I'm {name}. I'm a passionate web developer with
+            Hello, I'm {name} Sharma. I'm a passionate web developer with
             experience in front-end and back-end technologies. I enjoy creating
             user-friendly and efficient web applications using JavaScript,
             Node.js, and various frameworks. In my free time, I like to learn

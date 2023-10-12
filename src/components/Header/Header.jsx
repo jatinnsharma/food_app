@@ -15,7 +15,6 @@ const Header = () => {
   };
 
   const {items} = useSelector((state)=>state.cart)
-  console.log(items)
 
   const [isLoggedIn , setIsLoggedIn] = useState(false)
   return (

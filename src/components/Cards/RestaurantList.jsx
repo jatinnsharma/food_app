@@ -29,11 +29,11 @@ const filteredButton = (selectedButton) =>{
     setFilteredRestaurants(allrestaurants)
   }
   if(selectedButton === 'lessThan300'){
-   const data = allrestaurants.filter((res)=>res.info.costForTwo < '₹300 for two')
+   const data = allrestaurants.filter((res)=>res?.info?.costForTwo < '₹300 for two')
   setFilteredRestaurants(data)
   } 
    if(selectedButton === '300To600'){
-    const data = allrestaurants.filter((res)=>(res.info.costForTwo > '₹300 for two' &&  res.info.costForTwo < '₹600 for two'))
+    const data = allrestaurants.filter((res)=>(res?.info?.costForTwo > '₹300 for two' &&  res.info.costForTwo < '₹600 for two'))
     setFilteredRestaurants(data)
   }
   if(selectedButton==="fastDelivery"){
@@ -41,7 +41,7 @@ const filteredButton = (selectedButton) =>{
     setFilteredRestaurants(data)
   }
   if(selectedButton==="pureVeg"){
-    const data = allrestaurants.filter((res)=>res.info.veg);
+    const data = allrestaurants.filter((res)=>res?.info?.veg);
     setFilteredRestaurants(data)
   }
 }
