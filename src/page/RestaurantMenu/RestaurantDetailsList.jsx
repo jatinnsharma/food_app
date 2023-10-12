@@ -12,6 +12,7 @@ import {CiPercent} from 'react-icons/ci'
 import useGetRestaurantsDetails from "../../utils/useGetRestaurantsDetails";
 import { BsFillCartFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
+import {FiSearch} from 'react-icons/fi'
 
 
 const RestaurantDetailsList = () => {
@@ -49,25 +50,23 @@ const {lastMileTravelString} = restaurant?.cards[0]?.card?.card?.info?.sla;
   return (
     <div className="w-8/12 m-auto mt-5">
       <div className="flex items-center justify-between">
-        <div className="flex  items-center gap-1">
+        <div className=" text-xs md:text-base flex items-center gap-1 ">
           <IoChevronBackCircleOutline
             onClick={() => navigate(-1)}
             style={{ color: "orangered", fontSize: "20px", cursor: "pointer" }}
           />{" "}
           Home / {city} / {areaName}
         </div>
-        <div>
 
-        <Link to={'/search-page'}>Search bar</Link>
-        </div>
+        <Link className="flex items-center gap-1 " to={'/search-page'}><FiSearch className="text-orange-500"/>Search</Link>
       </div>
       <div className="flex justify-between mt-4 ">
-        <div className="text-3xl font-bold">{name}</div>
+        <div className="text-xl md:text-3xl font-bold">{name}</div>
       </div>
       <div className="flex justify-between">
-      <div className="text-gray-400 font-semibold">
+      <div className="text-gray-400 font-semibold text-sm md:text-base">
         <div>{cuisines.join(", ")}</div>
-        <div className="flex gap-2 text-sm">
+        <div className="flex gap-2 text-xs md:text-sm">
           <div>{areaName} |</div>
           <div>{city}</div>
         </div>
@@ -80,13 +79,13 @@ const {lastMileTravelString} = restaurant?.cards[0]?.card?.card?.info?.sla;
       </div>
       </div>
       <Divider/>
-      <div className="mt-3 font-semibold text-xl flex items-center gap-2
+      <div className="mt-3 font-semibold  md:text-xl flex items-center gap-2
       ">
-         <BiSolidTimeFive style={{ fontSize: "20px" }} /> {lastMileTravelString}  |  <HiMiniCurrencyRupee style={{ fontSize: "20px" }} /> {costForTwoMessage}
+         <BiSolidTimeFive  /> {lastMileTravelString}  |  <HiMiniCurrencyRupee  /> {costForTwoMessage}
       </div>
 
-      <div className="grid grid-cols-4 text-gray-500 bg-white rounded-lg my-12 drop-shadow-xl	border justify-center items-center text-center">
-                <div className="">
+      <div className="grid md:grid-cols-4 text-gray-500 bg-white rounded-lg my-12 drop-shadow-xl	border justify-center items-center text-center">
+                <div className="border px-16 md:px-0">
                   <h6 className="flex items-center justify-center gap-1 ">
                     <CiPercent /> 
                     <div className="font-bold">Flat 10% off upto 120</div>

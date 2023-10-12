@@ -3,6 +3,8 @@ import EmptyCart from '../../components/EmptyCart/EmptyCart'
 import { useDispatch, useSelector } from 'react-redux'
 import { MENU_ITEM_IMG } from '../../constant/constant'
 import { removeItem,clearCart } from '../../redux/features/cartSlice'
+import {loadStripe} from '@stripe/stripe-js';
+
 
 const Cart = () => {
   const data  = useSelector((store)=>store.cart.items)
@@ -36,8 +38,11 @@ const Cart = () => {
           .map((item) => item.card.info.price > 0 && item.card.info.price / 100)
           .reduce((sum, a) => sum + a, 0)
       : 0;
-  const finalPrice = (totalPrice + 29 + 49).toFixed();
-  console.log('data',data)
+  const finalPrice = (totalPrice + 19 + 39).toFixed();
+
+
+
+
   return (
     <div className='flex flex-col items-center '>
       {
@@ -49,7 +54,7 @@ const Cart = () => {
 
 
 {Object.values(uniqueFoodItems).map((item, index) => {
-          const { name, description, price, imageId,} = item[0].card.info
+          const { name, price, imageId,} = item[0].card.info
           const itemPrice = price/100;
           const itemQty = item[1];
           return (
@@ -90,11 +95,11 @@ const Cart = () => {
                 <span className="mx-10">{`₹${totalPrice}`}</span>
               </div>
               <div className="flex items-center justify-between">
-                <p>Delivery Fee</p> <span className="mx-10">₹29</span>
+                <p>Delivery Fee</p> <span className="mx-10">₹19</span>
               </div>
               <div className="flex items-center justify-between">
                 <p>GST and Restaurant Charges</p>
-                <span className="mx-10">₹49</span>
+                <span className="mx-10">₹39</span>
               </div>
             </div>
           </div>
@@ -109,8 +114,8 @@ const Cart = () => {
             <div>
                 <button className="bg-orange-600 text-white mx-1 px-2" onClick={()=> handleClearCart()}>Clear Cart</button>
                 <button className="bg-green-700 text-white mx-1 px-2" onClick={() => {
-              handlePlaceOrder();
-            }}>Place Order</button>
+              
+            }}>Checkout</button>
             </div>
             </div>
             

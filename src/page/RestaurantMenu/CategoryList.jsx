@@ -40,10 +40,10 @@ const CategoryList = (itemCards) => {
             <div>
               <div className="flex gap-2">
                 {vegClassifier === "VEG" ? 
-                <div className="flex items-center gap-2"> <img className="h-5 w-5" src="/images/vegetarian.png" alt="veg-icon" /> <span className="text-green-600 text-sm font-semibold">VEG</span>  </div>: <div className="flex items-center gap-2"><img className="h-5 w-5" src="/images/non-veg.png" alt="nonVeg-icon" /> <span className="text-red-600 text-sm font-semibold">NON-VEG</span></div> }
+                <div className="flex items-center gap-2"> <img className="h-3 w-3 md:h-5 md:w-5" src="/images/vegetarian.png" alt="veg-icon" /> <span className="text-green-600 text-xs md:text-sm font-semibold">VEG</span>  </div>: <div className="flex items-center gap-2"><img className=" h-3 w-3 md:h-5 md:w-5" src="/images/non-veg.png" alt="nonVeg-icon" /> <span className="text-red-600 text-xs md:text-sm font-semibold">NON-VEG</span></div> }
                 <span className="">
                       {text ? (
-                        <span className="flex items-center gap-1" style={{ color: "orange" }}>
+                        <span className="flex items-center gap-1 text-xs md:text-base" style={{ color: "orange" }}>
                           <AiFillStar /> Bestseller
                         </span>
                       ) : (
@@ -51,16 +51,16 @@ const CategoryList = (itemCards) => {
                       )}
                     </span>
               </div>
-              <div className="text-lg font-semibold">{name}</div>
-              <div className="text-sm text-gray-500 font-bold">{category}</div>
-              <div className="text-gray-500 font-semibold">
+              <div className="text-xs md:text-lg font-bold md:font-semibold">{name}</div>
+              <div className="text-xs md:text-sm text-gray-500 font-bold">{category}</div>
+              <div className="text-gray-500 font-semibold text-xs md:text-sm">
                 ₹ {price?.toString()?.slice(0, -2)}
               </div>
             </div>
 
             <div className="flex items-center flex-col">
               <img
-                className="h-24 w-24 rounded-lg"
+                className="h-16 w-20 md:h-24 md:w-28 rounded-lg"
                 src={MENU_ITEM_IMG + imageId}
                 alt="menu-item"
               />
@@ -72,7 +72,7 @@ const CategoryList = (itemCards) => {
                   color: "green",
                   border: "green",
                 }}
-                className="relative bottom-6"
+                className="relative bottom-6  "
                 
               >
                 ADD

@@ -19,7 +19,7 @@ const RestaurantMenu = (items) => {
       id="panel1bh-header"
     >
       <Typography  sx={{ width: '33%', flexShrink: 0 }}>
-        <div className='font-semibold text-gray-600 '>{title} ({itemCards.length})</div>
+        <div className='font-semibold text-gray-600 text-xs md:text-base'>{title} ({itemCards.length})</div>
       
       </Typography>
     </AccordionSummary>
