@@ -36,7 +36,7 @@ const CategoryList = (itemCards) => {
         const { text } = items?.card?.info?.ribbon;
 
         return (
-          <div className="flex justify-between " key={items?.card?.info?.id}>
+          <div className="flex justify-between mb-12 md:mb-6" key={items?.card?.info?.id}>
             <div>
               <div className="flex gap-2">
                 {vegClassifier === "VEG" ? 

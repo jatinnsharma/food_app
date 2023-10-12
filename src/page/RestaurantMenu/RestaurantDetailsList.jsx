@@ -61,7 +61,7 @@ const {lastMileTravelString} = restaurant?.cards[0]?.card?.card?.info?.sla;
         <Link className="flex items-center gap-1 " to={'/search-page'}><FiSearch className="text-orange-500"/>Search</Link>
       </div>
       <div className="flex justify-between mt-4 ">
-        <div className="text-xl md:text-3xl font-bold">{name}</div>
+        <div className="text-xs md:text-3xl font-bold">{name}</div>
       </div>
       <div className="flex justify-between">
       <div className="text-gray-400 font-semibold text-sm md:text-base">
@@ -85,24 +85,24 @@ const {lastMileTravelString} = restaurant?.cards[0]?.card?.card?.info?.sla;
       </div>
 
       <div className="grid md:grid-cols-4 text-gray-500 bg-white rounded-lg my-12 drop-shadow-xl	border justify-center items-center text-center">
-                <div className="border px-16 md:px-0">
+                <div className="border  px-16 md:px-0">
                   <h6 className="flex items-center justify-center gap-1 ">
-                    <CiPercent /> 
-                    <div className="font-bold">Flat 10% off upto 120</div>
+                    <CiPercent className=""/> 
+                    <div className="font-bold " >Flat 10% off upto 120</div>
                   </h6>
-                  <h6 className="use-off">USE PARTY I ABOVE Rs.130</h6>
+                  <h6 className="use-off text-xs mb-2 md:text-sm ">USE PARTY I ABOVE Rs.130</h6>
                 </div>
                 <div className="border">
                   <h6 className="font-bold">Flat 10% off upto 120</h6>
-                  <h6 className="use-off">USE PARTY I ABOVE Rs.130</h6>
+                  <h6 className="use-off text-xs mb-2 md:text-sm ">USE PARTY I ABOVE Rs.130</h6>
                 </div>
                 <div className="border">
                   <h6 className="font-bold">Flat 10% off upto 120</h6>
-                  <h6 className="use-off">USE PARTY I ABOVE Rs.130</h6>
+                  <h6 className="use-off text-xs mb-2 md:text-sm ">USE PARTY I ABOVE Rs.130</h6>
                 </div>
                 <div className="border">
                   <h6 className="font-bold">Flat 10% off upto 120</h6>
-                  <h6 className="use-off">USE PARTY I ABOVE Rs.130</h6>
+                  <h6 className="use-off text-xs mb-2 md:text-sm ">USE PARTY I ABOVE Rs.130</h6>
                 </div>
               </div>
              

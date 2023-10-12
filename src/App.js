@@ -11,7 +11,7 @@ import useIsOnline from './utils/useIsOnline';
 import AboutPage from './page/AboutPage/AboutPage';
 import OffersPage from './page/OffersPage/OffersPage';
 import Cart from './page/cart/Cart';
-
+import AboutPageShimmer from './Shimmer/AboutPageShimmer'
 
 const Search = lazy(() => import('./page/SearchPage/SearchPage'))
 // this is also known as the following name
@@ -52,6 +52,7 @@ function App() {
         <Route path='*' element={<ErrorPage />} />
       </Routes>
       
+
     </>
   );
 }

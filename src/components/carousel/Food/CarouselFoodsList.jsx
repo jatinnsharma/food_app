@@ -7,7 +7,7 @@ const settings = {
         infinite: false,
         speed: 500,
         slidesToShow: 7,
-        slidesToScroll: 3,
+        slidesToScroll: 2,
   };
 
 const CarouselFoodsList = () => {

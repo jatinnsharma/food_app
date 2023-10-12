@@ -3,9 +3,10 @@ import RestaurantMenuShimmmer from "../../Shimmer/RestaurantMenuShimmer";
 import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
 import { CgMail } from "react-icons/cg";
 import { Link } from "react-router-dom";
+import AboutPageShimmer from "../../Shimmer/AboutPageShimmer";
 
 const AboutPage = () => {
-  const [userData, setData] = useState([]);
+  const [userData, setData] = useState(null);
 
   useEffect(() => {
     getData();
@@ -16,7 +17,10 @@ const AboutPage = () => {
     const json = await data.json();
     setData(json);
   }
-  const { login, avatar_url, html_url, followers, following, location, name } =
+
+  if(!userData){return <AboutPageShimmer/>}
+
+  const { login, avatar_url, html_url,  location, name } =
     userData;
   return (
     <div
@@ -32,7 +36,7 @@ const AboutPage = () => {
             ABOUT ME
           </div>
           <div className=" md:w-5/6 text-gray-500">
-            Hello, I'm Jatin Sharma. I'm a passionate web developer with
+            Hello, I'm {name}. I'm a passionate web developer with
             experience in front-end and back-end technologies. I enjoy creating
             user-friendly and efficient web applications using JavaScript,
             Node.js, and various frameworks. In my free time, I like to learn

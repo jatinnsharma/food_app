@@ -56,8 +56,8 @@ const Header = () => {
               <span style={{right:'1.1rem',top:'0.2rem'}} className='relative text-xs'>{items.length}</span>
               <div>Cart</div>
               </Link>
-              <div className="md:hidden ">
-          <button className="bg-red-200" onClick={toggleMenu}>
+              <div className="md:hidden">
+          <button onClick={toggleMenu}>
             {isOpen ? <MdClose size={23}/> : <MdMenu size={23}/>}
           </button>
         </div>

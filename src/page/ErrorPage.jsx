@@ -11,18 +11,17 @@ const ErrorPage = () => {
 
     <div style={{height:'100vh',width:'100vw'}} className='flex flex-col items-center justify-center'>
       <img
-        height="450"
-        width="500"
+        className='h-60 md:h-96'
         src={ERROR_IMG}
         alt="cartimg"
       />
       <h4 className="text-2xl font-semibold text-gray-700">
         Page not found
       </h4>
-      <p className='text-sm text-gray-400'>
+      <p className='text-sm w-72 my-4 md:w-full md:text-center text-gray-400'>
         Uh-oh! Looks like the page you are trying to access, doesn't exist.{" "}
         <br />
-        Please start afresh.
+        Please start refresh.
       </p>
       <Link to="/">
         <button

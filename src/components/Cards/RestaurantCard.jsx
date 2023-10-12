@@ -28,7 +28,6 @@ const RestaurantCard = (props) => {
       title="restaurants-img"
     />
     <CardContent>
-
       <Typography component={'div'} className='flex text-center items-center justify-between  '>
        <Typography component={'div'} className='text-xl font-semibold'>{name.substring(0,20)}</Typography> 
         <Typography component={'div'} className='flex gap-1 items-center '>

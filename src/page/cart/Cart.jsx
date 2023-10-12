@@ -2,22 +2,15 @@ import React from 'react'
 import EmptyCart from '../../components/EmptyCart/EmptyCart'
 import { useDispatch, useSelector } from 'react-redux'
 import { MENU_ITEM_IMG } from '../../constant/constant'
-import { removeItem,clearCart } from '../../redux/features/cartSlice'
-import {loadStripe} from '@stripe/stripe-js';
+import {clearCart } from '../../redux/features/cartSlice'
 
 
 const Cart = () => {
   const data  = useSelector((store)=>store.cart.items)
-  // console.log(data)
   const dispatch = useDispatch();
 
   
- const handlePlaceOrder =()=>{
-  dispatch(clearCart())
-}
-  const handleRemoveParticularItem = (id) =>{
-    dispatch(removeItem(id))
-  }
+
 
   const handleClearCart = () => {
     dispatch(clearCart());
@@ -39,8 +32,6 @@ const Cart = () => {
           .reduce((sum, a) => sum + a, 0)
       : 0;
   const finalPrice = (totalPrice + 19 + 39).toFixed();
-
-
 
 
   return (
