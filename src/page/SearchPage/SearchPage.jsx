@@ -59,6 +59,7 @@ const SearchPage = () => {
         <Slider style={{mixBlendMode:'multiply'}} className=' h-32  pt-2  ' {...settings}>
         {
           carouselData.map((items)=>{
+
             return(
               <SearchCarousel data={items} key={items.id} />
             )

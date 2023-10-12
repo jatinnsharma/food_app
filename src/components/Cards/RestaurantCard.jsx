@@ -1,10 +1,8 @@
 import React from 'react'
 import { IMG_URL } from '../../constant/constant'
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {MdStars} from 'react-icons/md'
 import { Link } from 'react-router-dom';
