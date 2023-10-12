@@ -18,7 +18,7 @@ const RestaurantCard = (props) => {
   return (
   
 <Link className=' transform transition duration-500 hover:scale-105 hover:drop-shadow-2xl' to={`restaurantDetailsPage/${id}`}>
-    <Card className='h-[20rem] md:h-[19rem]' >
+    <Card className='h-[20rem] md:h-[19rem] md:w-[18rem]' >
     <CardMedia 
       className='h-[10rem]'
       image= {IMG_URL+cloudinaryImageId}
