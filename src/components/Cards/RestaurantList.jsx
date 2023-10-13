@@ -49,10 +49,10 @@ const filteredButton = (selectedButton) =>{
   return !filteredRestaurants? (<RestaurantShimmer/>) :
   (
     <>
-    <div className='text-sm md:text-2xl pt-4 font-bold text-gray-700'>Restaurants with online food delivery in Bangalore</div>
+    <div className='text-sm md:text-2xl pt-4 font-bold text-gray-700'>Restaurants with online food delivery in Bangalore !!!</div>
     
     <div className='flex flex-col  mx-auto  md:flex md:flex-row  justify-around py-6 '>
-      <div className='flex flex-wrap justify-centeritems-center mx-auto w-full mb-5  md:flex gap-2 md:mr-32'>
+      <div className='flex flex-wrap justify-center items-center mx-auto w-full mb-5  md:flex gap-2 md:mr-32'>
         <Button onClick={()=>{filteredButton('All')}}  style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >All</Button>
         <Button onClick={()=>{filteredButton('fastDelivery')}}  style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >Fast Delivery</Button>
         <Button onClick={()=>{filteredButton("pureVeg ")}} style={{borderColor:"orange",color:"orange",fontWeight:'bold'}} variant="outlined" size='small' >Pure Veg</Button>
